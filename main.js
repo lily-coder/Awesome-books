@@ -29,7 +29,7 @@ function addBookList() {
 }
 
 // ADD INPUT VALUE
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
     books.push({ title: title.value, author: author.value });
 
     addBookList();
