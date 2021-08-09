@@ -29,7 +29,7 @@ function addBookList() {
 }
 
 // ADD INPUT VALUE
-  button.addEventListener('click', function () {
+button.addEventListener('click', () => {
   books.push({ title: title.value, author: author.value });
 
   addBookList();
@@ -38,7 +38,7 @@ function addBookList() {
   // CLEAR FIELDS AFTER ADD
   title.value = '';
   author.value = '';
-  });
+});
 
 // REMOVE BOOK
 const removeBtn = document.querySelector('.book-list');
@@ -46,4 +46,3 @@ const removeBtn = document.querySelector('.book-list');
 removeBtn.addEventListener('click', (e) => {
   deleteBook(e.target);
 });
-
