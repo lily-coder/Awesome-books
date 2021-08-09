@@ -10,14 +10,6 @@ function deleteBook(el) {
   }
 }
 
-// ADD INPUT VALUE
-button.addEventListener('click', function () {
-  books.push({ title: title.value, author: author.value });
-
-  addBookList();
-  window.localStorage.setItem('book', JSON.stringify(books));
-});
-
 // ADD BOOKS TO TABLE LIST
 function addBookList() {
   const list = document.querySelector('.book-list');
@@ -34,10 +26,20 @@ function addBookList() {
                       <td><button type="submit" class="remove">Remove</button></td>`;
 
   list.appendChild(row);
-  // CLEAR FIELDS AFTER ADD
-  title.value = '';
-  author.value = '';
 }
+
+
+// ADD INPUT VALUE
+button.addEventListener('click', function () {
+  books.push({ title: title.value, author: author.value });
+
+  addBookList();
+  window.localStorage.setItem('book', JSON.stringify(books));
+
+   // CLEAR FIELDS AFTER ADD
+   title.value = '';
+   author.value = '';
+});
 
 // REMOVE BOOK
 const removeBtn = document.querySelector('.book-list');
@@ -46,4 +48,3 @@ removeBtn.addEventListener('click', (e) => {
   deleteBook(e.target);
 });
 
-list.onload = addBookList();
