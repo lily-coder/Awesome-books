@@ -5,5 +5,4 @@ const button = document.querySelector('.btn');
 
 button.addEventListener('click', function(){
     books.push({title: title.value, author: author.value })
-    console.log(books);
 })
