@@ -1,29 +1,43 @@
 let books = [];
-const title = document.querySelector('.title');
-const author = document.querySelector('.author');
-const button = document.querySelector('.btn');
+const title = document.querySelector(".title");
+const author = document.querySelector(".author");
+const button = document.querySelector(".btn");
 
-button.addEventListener('click', function(){
-    books.push({title: title.value, author: author.value })
-
-    addBookList();
-})
-
+//ADD BOOKS TO TABLE LIST
 function addBookList() {
-    const list = document.querySelector('.book-list');
+  const list = document.querySelector(".book-list");
 
-    const row = document.createElement('tr');
+  const row = document.createElement("tr");
 
-    row.innerHTML = `
+  row.innerHTML = `
                     <td>title: ${title.value}</td>
                     <td>Author: ${author.value}</td>
-                    <td><button type="submit">Remove</button></td>`;
-    
-    list.appendChild(row);
+                    <td><button type="submit" class="remove">Remove</button></td>`;
 
-    title.value = "";
-    author.value = "";
-
+  list.appendChild(row);
 }
 
+//REMOVE BOOK FUNCTION
+function deleteBook(el) {
+  if (el.classList.contains("remove")) {
+    el.parentElement.parentElement.remove();
+  }
+}
 
+//ADD INPUT VALUE
+button.addEventListener("click", function () {
+  books.push({ title: title.value, author: author.value });
+
+  addBookList();
+
+  //CLEAR FIELDS AFTER ADD
+  title.value = "";
+  author.value = "";
+});
+
+//REMOVE BOOK
+const removeBtn = document.querySelector(".book-list");
+
+removeBtn.addEventListener("click", (e) => {
+  deleteBook(e.target);
+});
