@@ -30,14 +30,14 @@ function addBookList() {
 
 // ADD INPUT VALUE
   button.addEventListener('click', function () {
-    books.push({ title: title.value, author: author.value });
+  books.push({ title: title.value, author: author.value });
 
-    addBookList();
-    window.localStorage.setItem('book', JSON.stringify(books));
+  addBookList();
+  window.localStorage.setItem('book', JSON.stringify(books));
 
-    // CLEAR FIELDS AFTER ADD
-    title.value = '';
-    author.value = '';
+  // CLEAR FIELDS AFTER ADD
+  title.value = '';
+  author.value = '';
   });
 
 // REMOVE BOOK
