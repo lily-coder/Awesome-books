@@ -1,48 +1,94 @@
+/* eslint no-unused-vars: 0 no-undef: 0 */
 const books = [];
-const title = document.querySelector('.title');
-const author = document.querySelector('.author');
-const button = document.querySelector('.btn');
 
-// REMOVE BOOK FUNCTION
-function deleteBook(el) {
-  if (el.classList.contains('remove')) {
-    el.parentElement.parentElement.remove();
+// INTRODUCE LOCAL STORAGE
+let id = 0;
+if (localStorage.getItem("storage")) {
+  const listOfBooks = localStorage.getItem("storage");
+  const parsed = JSON.parse(listOfBooks);
+  id = parsed.length;
+  for (let i = 0; i < parsed.length; i += 1) {
+    books.push(parsed[i]);
   }
 }
 
+setTimeout(() => {
+  const box = document.getElementById("books");
+  count.id = "counter";
+  box.appendChild(count);
+}, 1);
+
 // ADD BOOKS TO TABLE LIST
-function addBookList() {
-  const list = document.querySelector('.book-list');
+add = () => {
+  const form = document.querySelector(".book-form");
+  const title = document.querySelector(".title").value;
+  const author = document.querySelector(".author").value;
+  const box = document.getElementById("books");
+  if (title !== "" && author !== "") {
+    const book = {
+      id,
+      title,
+      author,
+    };
+    id += 1;
+    books.push(book);
+    const row = document.createElement("tr");
+    row.id = id;
+    row.innerHTML = `
+                      <td>Title: ${title}</td>
+                      <td>Author: ${author}</td>
+                      <td><button type="button" onclick="remove(${id}),store()">Remove</button></td>`;
+    box.appendChild(row);
+  } else {
+    alert("Please make sure to fill all fields!");
+  }
+};
 
-  const row = document.createElement('tr');
-  // RETRIEVE THE BOOK FROM LOCAL STORAGE IN JSON FORMAT
-  window.localStorage.getItem('book');
-  // CONVERT THE JSON FORMAT BACK TO AN OBJECT
-  JSON.parse(window.localStorage.getItem('book'));
+// REMOVE BOOK FUNCTION
+remove = (n) => {
+  books.splice(n, 1);
+  const toremove = document.getElementById(n);
+  const box = document.getElementById("books");
+  const children = box.getElementsByTagName("tr");
+  for (let i = n; i < children.length; i += 1) {
+    const button = children[i].getElementsByTagName("button");
+    button[0].setAttribute("onclick", `remove(${children[i].id - 1}),store()`);
+    children[i].id -= 1;
+  }
+  box.removeChild(toremove);
+  id -= 1;
+};
 
-  row.innerHTML = `
-                      <td>title: ${title.value}</td>
-                      <td>Author: ${author.value}</td>
-                      <td><button type="submit" class="remove">Remove</button></td>`;
+// STORE ADDED BOOK DATA IN LOCAL STORAGE
+store = () => {
+  const box = document.getElementById("books");
+  const children = box.getElementsByTagName("tr");
+  if (children.length === 0) {
+    id = 0;
+  }
+  localStorage.setItem("storage", JSON.stringify(books));
+  localStorage.setItem("storage2", id);
+};
 
-  list.appendChild(row);
-}
+// POPULATE STORED BOOKS FROM LOCAL STORAGE
+populate = () => {
+  if (localStorage.getItem("storage")) {
+    const listOfBooks = localStorage.getItem("storage");
+    const parsed = JSON.parse(listOfBooks);
+    for (let i = 0; i < parsed.length; i += 1) {
+      const box = document.getElementById("books");
+      const row = document.createElement("tr");
+      row.id = i;
+      row.innerHTML = `
+                      <td>Title ${parsed[i].title}</td>
+                      <td>Author ${parsed[i].author}</td>
+                      <td><button type="button" onclick="remove(${i}),store()">Remove</button></td>`;
+      box.appendChild(row);
+    }
+  }
+};
 
-// ADD INPUT VALUE
-button.addEventListener('click', () => {
-  books.push({ title: title.value, author: author.value });
-
-  addBookList();
-  window.localStorage.setItem('book', JSON.stringify(books));
-
-  // CLEAR FIELDS AFTER ADD
-  title.value = '';
-  author.value = '';
-});
-
-// REMOVE BOOK
-const removeBtn = document.querySelector('.book-list');
-
-removeBtn.addEventListener('click', (e) => {
-  deleteBook(e.target);
-});
+// POPULATE BOOKS FROM LOCAL STORAGE AFTER RELOAD
+window.onload = setTimeout(() => {
+  populate();
+}, 1);

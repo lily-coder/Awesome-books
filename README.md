@@ -9,14 +9,10 @@
 - Html5
 - Javascript
 
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
 ### Setup
 To get a local copy up and running follow these simple example steps.
 
-- Clone the repository to your computer using this[link] (https://github.com/menyagah/Awesome-books.git)
+- Clone the repository to your computer using this[link](https://github.com/menyagah/Awesome-books.git)
 - Cd into the folder
 - Open index.html with live server
 - Or you can Fork it instead, and create a pull request to suggest some changes
@@ -32,7 +28,7 @@ To get a local copy up and running follow these simple example steps.
 👤 **Martin Nyagah**
 
 - GitHub: [Martin](https://github.com/menyagah)
-- LinkedIn: [Martin Nyagah](https://www.linkedin.com/in/martin-nyagah-a29b8610b
+- LinkedIn: [MartinNyagah](https://www.linkedin.com/in/martin-nyagah-a29b8610b
 )
 
 ## 🤝 Contributing
