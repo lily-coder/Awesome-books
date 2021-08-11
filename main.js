@@ -25,15 +25,15 @@ class Book {
   }
 
   // REMOVE BOOK FROM TABLE LIST
-  remove(this.id) {
-    books.splice(this.id, 1);
-    const toremove = document.getElementById(this.id);
+  remove(id) {
+    books.splice(id, 1);
+    const toremove = document.getElementById(id);
     const children = box.getElementsByTagName('tr');
     for (let i = this.id; i < children.length; i += 1) {
       const button = children[i].getElementsByTagName('button');
       button[0].setAttribute(
         'onclick',
-        `new Book().remove(${children[i].this.id - 1})`
+        `new Book().remove(${children[i].this.id - 1})`,
       );
       children[i].this.id -= 1;
     }
@@ -79,6 +79,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     localStorage.setItem('storage', JSON.stringify(books));
     localStorage.setItem('storage2', id);
     id += 1;
-    location.reload();
+    window.location.reload();
   });
 });
