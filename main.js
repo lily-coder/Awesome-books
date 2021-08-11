@@ -1,8 +1,8 @@
 /* eslint no-unused-vars: 0 no-undef: 0 */
 let id = 0;
 const books = [];
-const box = document.getElementById("books");
-const form = document.querySelector(".book-form");
+const box = document.getElementById('books');
+const form = document.querySelector('.book-form');
 
 // ADD CLASS
 class Book {
@@ -13,24 +13,24 @@ class Book {
   }
   // ADD BOOKS TO TABLE LIST
   add() {
-    const row = document.createElement("tr");
+    const row = document.createElement('tr');
     row.id = this.id;
     row.innerHTML = `
                         <td>${this.title}</td>
                         <td>${this.author}</td>
-                        <td><button type="button" onclick="new Book().remove(${this.id})"">Remove</button></td>`;
+                        <td><button type='button' onclick='new Book().remove(${this.id})''>Remove</button></td>`;
     box.appendChild(row);
-    const children = box.getElementsByTagName("tr");
+    const children = box.getElementsByTagName('tr');
   }
   // REMOVE BOOK FROM TABLE LIST
   remove(id) {
     books.splice(id, 1);
     const toremove = document.getElementById(id);
-    const children = box.getElementsByTagName("tr");
+    const children = box.getElementsByTagName('tr');
     for (let i = id; i < children.length; i += 1) {
-      const button = children[i].getElementsByTagName("button");
+      const button = children[i].getElementsByTagName('button');
       button[0].setAttribute(
-        "onclick",
+        'onclick',
         `new Book().remove(${children[i].id - 1})`
       );
       children[i].id -= 1;
@@ -41,19 +41,19 @@ class Book {
     box.removeChild(toremove);
     id -= 1;
     // STORE BOOKS DATA IN LOCAL STORAGE
-    localStorage.setItem("storage", JSON.stringify(books));
-    localStorage.setItem("storage2", id);
+    localStorage.setItem('storage', JSON.stringify(books));
+    localStorage.setItem('storage2', id);
   }
 }
 
 // POPULATE BOOKS IN LOCAL STORAGE WHEN PAGE IS LOADED
-document.addEventListener("DOMContentLoaded", (event) => {
-  const box = document.getElementById("books");
-  const count = document.createElement("p");
-  count.id = "counter";
+document.addEventListener('DOMContentLoaded', (event) => {
+  const box = document.getElementById('books');
+  const count = document.createElement('p');
+  count.id = 'counter';
   box.appendChild(count);
-  if (localStorage.getItem("storage")) {
-    const items = localStorage.getItem("storage");
+  if (localStorage.getItem('storage')) {
+    const items = localStorage.getItem('storage');
     const parsed = JSON.parse(items);
     id = 0;
     for (let i = 0; i < parsed.length; i += 1) {
@@ -66,16 +66,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     id = parsed.length;
   }
 
-  document.querySelector(".btn").addEventListener("click", (e) => {
-    const title = document.querySelector(".title").value;
-    const author = document.querySelector(".author").value;
-    title.value = "";
-    author.value = "";
+  document.querySelector('.btn').addEventListener('click', (e) => {
+    const title = document.querySelector('.title').value;
+    const author = document.querySelector('.author').value;
+    title.value = '';
+    author.value = '';
     const book = new Book(id, title, author);
     book.add();
     books.push(book);
-    localStorage.setItem("storage", JSON.stringify(books));
-    localStorage.setItem("storage2", id);
+    localStorage.setItem('storage', JSON.stringify(books));
+    localStorage.setItem('storage2', id);
     id += 1;
     location.reload();
   });
