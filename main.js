@@ -19,38 +19,40 @@ setTimeout(() => {
 }, 1);
 
 // ADD BOOKS TO TABLE LIST
-class AddbookCl {
+class Book {
   constructor(id, title, author){
     this.id = id;
     this.title = title;
     this.author = author;
   }
-}
 
-add = () => {
-  const form = document.querySelector('.book-form');
-  const title = document.querySelector('.title').value;
-  const author = document.querySelector('.author').value;
-  const box = document.getElementById('books');
-  if (title !== '' && author !== '') {
+  add(){
+    const form = document.querySelector('.book-form');
+    const title = document.querySelector('.title').value;
+    const author = document.querySelector('.author').value;
+    const box = document.getElementById('books');
+    if (title !== '' && author !== '') {
     const book = {
-      id,
-      title,
-      author,
+      this.id,
+      this.title,
+      this.author,
     };
-    id += 1;
+    this.id += 1;
     books.push(book);
     const row = document.createElement('tr');
     row.id = id;
     row.innerHTML = `
-                      <td>Title: ${title}</td>
-                      <td>Author: ${author}</td>
-                      <td><button type='button' onclick='remove(${id}),store()'>Remove</button></td>`;
+                      <td>Title: ${this.title}</td>
+                      <td>Author: ${this.author}</td>
+                      <td><button type='button' onclick='remove(${this.id}),store()'>Remove</button></td>`;
     box.appendChild(row);
-  } else {
-    alert('Please make sure to fill all fields!');
+    } else {
+      alert('Please make sure to fill all fields!');
+    }
   }
-};
+}
+
+
 
 // REMOVE BOOK FUNCTION
 remove = (n) => {
