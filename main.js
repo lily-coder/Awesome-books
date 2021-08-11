@@ -11,6 +11,7 @@ class Book {
     this.title = title;
     this.author = author;
   }
+
   // ADD BOOKS TO TABLE LIST
   add() {
     const row = document.createElement('tr');
@@ -22,27 +23,28 @@ class Book {
     box.appendChild(row);
     const children = box.getElementsByTagName('tr');
   }
+
   // REMOVE BOOK FROM TABLE LIST
-  remove(id) {
-    books.splice(id, 1);
-    const toremove = document.getElementById(id);
+  remove(this.id) {
+    books.splice(this.id, 1);
+    const toremove = document.getElementById(this.id);
     const children = box.getElementsByTagName('tr');
-    for (let i = id; i < children.length; i += 1) {
+    for (let i = this.id; i < children.length; i += 1) {
       const button = children[i].getElementsByTagName('button');
       button[0].setAttribute(
         'onclick',
-        `new Book().remove(${children[i].id - 1})`
+        `new Book().remove(${children[i].this.id - 1})`
       );
-      children[i].id -= 1;
+      children[i].this.id -= 1;
     }
-    for (let j = id; j < books.length; j += 1) {
+    for (let j = this.id; j < books.length; j += 1) {
       books[j].id -= 1;
     }
     box.removeChild(toremove);
-    id -= 1;
+    this.id -= 1;
     // STORE BOOKS DATA IN LOCAL STORAGE
     localStorage.setItem('storage', JSON.stringify(books));
-    localStorage.setItem('storage2', id);
+    localStorage.setItem('storage2', this.id);
   }
 }
 
