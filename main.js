@@ -19,6 +19,14 @@ setTimeout(() => {
 }, 1);
 
 // ADD BOOKS TO TABLE LIST
+class AddbookCl {
+  constructor(id, title, author){
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
+}
+
 add = () => {
   const form = document.querySelector('.book-form');
   const title = document.querySelector('.title').value;
