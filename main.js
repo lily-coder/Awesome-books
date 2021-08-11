@@ -1,93 +1,82 @@
 /* eslint no-unused-vars: 0 no-undef: 0 */
+let id = 0;
 const books = [];
+const box = document.getElementById("books");
+const form = document.querySelector(".book-form");
 
-setTimeout(() => {
-  const box = document.getElementById('books');
-  count.id = 'counter';
-  box.appendChild(count);
-}, 1);
-
-// ADD BOOKS TO TABLE LIST
+// ADD CLASS
 class Book {
   constructor(id, title, author){
     this.id = id;
     this.title = title;
     this.author = author;
   }
-
-  add(){
-    const form = document.querySelector('.book-form');
-    const title = document.querySelector('.title').value;
-    const author = document.querySelector('.author').value;
-    const box = document.getElementById('books');
-    if (title !== '' && author !== '') {
-    const book = {
-      this.id,
-      this.title,
-      this.author,
-    };
-    this.id += 1;
-    books.push(book);
-    const row = document.createElement('tr');
-    row.id = id;
+  // ADD BOOKS TO TABLE LIST
+  add() {
+    const row = document.createElement("tr");
+    row.id = this.id;
     row.innerHTML = `
-                      <td>Title: ${this.title}</td>
-                      <td>Author: ${this.author}</td>
-                      <td><button type='button' onclick='remove(${this.id}),store()'>Remove</button></td>`;
+                        <td>${this.title}</td>
+                        <td>${this.author}</td>
+                        <td><button type="button" onclick="new Book().remove(${this.id})"">Remove</button></td>`;
     box.appendChild(row);
-    } else {
-      alert('Please make sure to fill all fields!');
+    const children = box.getElementsByTagName("tr");
+  }
+  // REMOVE BOOK FROM TABLE LIST
+  remove(id) {
+    books.splice(id, 1);
+    const toremove = document.getElementById(id);
+    const children = box.getElementsByTagName("tr");
+    for (let i = id; i < children.length; i += 1) {
+      const button = children[i].getElementsByTagName("button");
+      button[0].setAttribute(
+        "onclick",
+        `new Book().remove(${children[i].id - 1})`
+      );
+      children[i].id -= 1;
     }
+    for (let j = id; j < books.length; j += 1) {
+      books[j].id -= 1;
+    }
+    box.removeChild(toremove);
+    id -= 1;
+    // STORE BOOKS DATA IN LOCAL STORAGE
+    localStorage.setItem("storage", JSON.stringify(books));
+    localStorage.setItem("storage2", id);
   }
 }
 
-
-
-// REMOVE BOOK FUNCTION
-remove = (n) => {
-  books.splice(n, 1);
-  const toremove = document.getElementById(n);
-  const box = document.getElementById('books');
-  const children = box.getElementsByTagName('tr');
-  for (let i = n; i < children.length; i += 1) {
-    const button = children[i].getElementsByTagName('button');
-    button[0].setAttribute('onclick', `remove(${children[i].id - 1}),store()`);
-    children[i].id -= 1;
-  }
-  box.removeChild(toremove);
-  id -= 1;
-};
-
-// STORE ADDED BOOK DATA IN LOCAL STORAGE
-store = () => {
-  const box = document.getElementById('books');
-  const children = box.getElementsByTagName('tr');
-  if (children.length === 0) {
+// POPULATE BOOKS IN LOCAL STORAGE WHEN PAGE IS LOADED
+document.addEventListener("DOMContentLoaded", (event) => {
+  const box = document.getElementById("books");
+  const count = document.createElement("p");
+  count.id = "counter";
+  box.appendChild(count);
+  if (localStorage.getItem("storage")) {
+    const items = localStorage.getItem("storage");
+    const parsed = JSON.parse(items);
     id = 0;
-  }
-  localStorage.setItem('storage', JSON.stringify(books));
-  localStorage.setItem('storage2', id);
-};
-
-// POPULATE STORED BOOKS FROM LOCAL STORAGE
-populate = () => {
-  if (localStorage.getItem('storage')) {
-    const listOfBooks = localStorage.getItem('storage');
-    const parsed = JSON.parse(listOfBooks);
     for (let i = 0; i < parsed.length; i += 1) {
-      const box = document.getElementById('books');
-      const row = document.createElement('tr');
-      row.id = i;
-      row.innerHTML = `
-                      <td>Title ${parsed[i].title}</td>
-                      <td>Author ${parsed[i].author}</td>
-                      <td><button type='button' onclick='remove(${i}),store()'>Remove</button></td>`;
-      box.appendChild(row);
+      const book = new Book(i, parsed[i].title, parsed[i].author);
+      parsed[i].id = i;
+      book.add();
+      books.push(parsed[i]);
+      id += 1;
     }
+    id = parsed.length;
   }
-};
 
-// POPULATE BOOKS FROM LOCAL STORAGE AFTER RELOAD
-window.onload = setTimeout(() => {
-  populate();
-}, 1);
+  document.querySelector(".btn").addEventListener("click", (e) => {
+    const title = document.querySelector(".title").value;
+    const author = document.querySelector(".author").value;
+    title.value = '';
+    author.value = '';
+    const book = new Book(id, title, author);
+    book.add();
+    books.push(book);
+    localStorage.setItem("storage", JSON.stringify(books));
+    localStorage.setItem("storage2", id);
+    id += 1;
+    location.reload();
+  });
+});
