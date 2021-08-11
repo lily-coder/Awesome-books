@@ -6,7 +6,7 @@ const form = document.querySelector(".book-form");
 
 // ADD CLASS
 class Book {
-  constructor(id, title, author){
+  constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.querySelector(".btn").addEventListener("click", (e) => {
     const title = document.querySelector(".title").value;
     const author = document.querySelector(".author").value;
-    title.value = '';
-    author.value = '';
+    title.value = "";
+    author.value = "";
     const book = new Book(id, title, author);
     book.add();
     books.push(book);
