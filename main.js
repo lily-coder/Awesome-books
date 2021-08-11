@@ -1,17 +1,6 @@
 /* eslint no-unused-vars: 0 no-undef: 0 */
 const books = [];
 
-// INTRODUCE LOCAL STORAGE
-let id = 0;
-if (localStorage.getItem('storage')) {
-  const listOfBooks = localStorage.getItem('storage');
-  const parsed = JSON.parse(listOfBooks);
-  id = parsed.length;
-  for (let i = 0; i < parsed.length; i += 1) {
-    books.push(parsed[i]);
-  }
-}
-
 setTimeout(() => {
   const box = document.getElementById('books');
   count.id = 'counter';
