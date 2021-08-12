@@ -1,5 +1,11 @@
-body{
+body,
+.top-header,
+.book-list,
+.book {
   display: flex;
+}
+
+body{
   flex-direction: column;
   align-items: center;
   font-size: 27px;
@@ -7,15 +13,23 @@ body{
   font-weight: 700;
 }
 
+.top-header,
+.book-list {
+  border: 2px solid black;
+  width: 90%;
+}
+
+.top-header{
+  justify-content: space-between;
+  align-items: center;
+}
+
 h1 {
   font-size: 2em;
 }
 
 .book-list{
-  display: flex;
-  width: 90%;
   flex-direction:column;
-  border: 2px solid black;
   box-shadow: 1px 1px 1px 1px;
 }
 
@@ -30,7 +44,6 @@ hr{
 }
 
 .book {
-  display: flex;
   align-items: center;
   justify-content:space-between;
   padding: .4em;
