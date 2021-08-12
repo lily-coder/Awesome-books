@@ -1,3 +1,26 @@
 h1 {
   font-size: 2em;
 }
+
+.book-list{
+  display: flex;
+  width: 100%;
+  flex-direction:column;
+}
+
+.book:nth-child(odd) {
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  padding: .4em;
+}
+
+.book {
+  display: flex;
+  justify-content: space-between;
+  padding: .4em;
+}
+
+.book-form {
+  padding: .3em;
+}

@@ -25,13 +25,14 @@ class Book {
     // DESTRUCTURE THE STORED DATA IN THE OBJECT PARSED FROM THE LOCALSTORAGE
 
     bookArray.forEach(({ title, author, id }) => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-                        <td>title: ${title}</td>
-                        <td>Author: ${author}</td>
-                        <td><button type='submit' class='remove' id = '${id}'>Remove</button></td>`;
+      const div = document.createElement('div');
+      div.classList.add('book');
+      div.innerHTML = `
+                        <div>'${title}'  by ${author}</div>
+                        
+                        <div><button type='submit' class='remove' id = '${id}'>Remove</button></div>`;
 
-      list.appendChild(row);
+      list.appendChild(div);
     });
   }
 
