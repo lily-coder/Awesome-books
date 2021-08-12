@@ -19,6 +19,13 @@ h1 {
   box-shadow: 1px 1px 1px 1px;
 }
 
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4em;
+}
+
 .book:nth-child(odd) {
   background-color: silver;
 }
@@ -29,20 +36,8 @@ hr {
   width: 200px;
 }
 
-.book {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.4em;
-}
-
-.book-form {
-  padding: 0.3em;
-}
-
 .remove {
   margin-right: 2em;
-  padding: 0.3em;
   border: 1px solid;
   padding: 10px;
   box-shadow: 5px 10px;
@@ -53,6 +48,7 @@ hr {
 }
 
 .book-form {
+  padding: 0.3em;
   display: flex;
   flex-direction: column;
   width: 60%;
