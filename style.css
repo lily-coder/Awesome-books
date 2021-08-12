@@ -1,4 +1,7 @@
 body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 27px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 700;
@@ -9,22 +12,20 @@ h1 {
 
 .book-list{
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction:column;
   border: 2px solid black;
+  box-shadow: 1px 1px 1px 1px;
 }
 
 .book:nth-child(odd) {
   background-color: silver;
-  display: flex;
-  justify-content: space-between;
-  padding: .4em;
 }
 
 .book {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:space-between;
   padding: .4em;
 }
 
