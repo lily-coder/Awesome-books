@@ -12,6 +12,43 @@ section.classList.add('date-time');
 section.innerHTML = `<div>${Date()}<div>`
 dateMonth.appendChild(section)
 
+// NAVIGATION SECTION
+
+const listBtn = document.querySelector('#list-link');
+const addBtn = document.querySelector('#addlink');
+const contactBtn = document.querySelector('#contact-link');
+
+const displayList = document.querySelector('#books-display');
+const displayHeading = document.querySelector('#h1')
+const displayInputs = document.querySelector('#show-form')
+const displayContact = document.querySelector('#contacts');
+const displayMainHeader = document.querySelector('#top-text')
+
+listBtn.addEventListener('click', function(){
+  displayList.classList.remove('hide');
+  displayContact.classList.add('hide');
+  displayHeading.classList.add('hide');
+  displayInputs.classList.add('hide')
+  displayMainHeader.classList.remove('hide');
+});
+
+addBtn.addEventListener('click', function(){
+  displayHeading.classList.remove('hide');
+  displayInputs.classList.remove('hide')
+  displayList.classList.add('hide')
+  displayMainHeader.classList.add('hide');
+  displayContact.classList.add('hide');
+});
+
+contactBtn.addEventListener('click', function(){
+  displayContact.classList.remove('hide');
+  displayHeading.classList.add('hide');
+  displayInputs.classList.add('hide')
+})
+
+
+
+
 class Book {
   constructor(title, author) {
     this.title = title;

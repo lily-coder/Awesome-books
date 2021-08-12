@@ -8,12 +8,20 @@ li {
   display: flex;
 }
 
+html, body {
+  height: 100%;
+}
+
 body{
   flex-direction: column;
   align-items: center;
   font-size: 27px;
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   font-weight: 700;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  min-height: calc(100vh - 100px);
 }
 
 .nav-links {
@@ -76,6 +84,8 @@ h1 {
 .book-list{
   flex-direction:column;
   box-shadow: 1px 1px 1px 1px;
+  margin-bottom: 10px;
+  flex: 1 0 auto;
 }
 
 .book {
@@ -99,10 +109,6 @@ hr {
   align-items: center;
   justify-content:space-between;
   padding: .4em;
-}
-
-.book-form {
-  padding: .3em;
 }
 
 .remove{
@@ -139,6 +145,12 @@ hr {
   font-weight: bold;
 }
 
+.hide{
+  display:none;
+  opacity: 0;
+  z-index: 0;
+}
+
 .add-btn {
   display: flex;
   justify-content: flex-end;
@@ -148,6 +160,10 @@ hr {
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   color: black;
   font-weight: bold;
+}
+
+.contact-section {
+  flex: 1 0 auto;
 }
 
 .contact-info-list{
@@ -160,10 +176,11 @@ hr {
 }
 
 footer {
-  width: 100%;
-  display: flex;
+  width: 95%;
   justify-content: flex-start;
   border: 2px solid black;
+  margin-top: 10px;
+  flex-shrink: 0;
 }
 
 .footer-bar {
