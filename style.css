@@ -1,7 +1,10 @@
 body,
 .top-header,
 .book-list,
-.book {
+.book, 
+.nav-links,
+ul,
+li {
   display: flex;
 }
 
@@ -9,8 +12,38 @@ body{
   flex-direction: column;
   align-items: center;
   font-size: 27px;
+  text-decoration: none;
+  list-style: none;
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   font-weight: 700;
+}
+
+.nav-links {
+  justify-content: space-around;
+  width: 500px;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
+.a-link{
+  padding-left: 10px;
+}
+
+ul, li {
+  flex-direction: row;
+  width: 400px; 
+}
+
+.logo{
+  margin-left: 30px;
+}
+
+.line{
+  border-right: 2px solid black;
 }
 
 .top-header,
@@ -22,6 +55,7 @@ body{
 .top-header{
   justify-content: space-between;
   align-items: center;
+  height: 50px;
 }
 
 h1 {
