@@ -12,8 +12,6 @@ body{
   flex-direction: column;
   align-items: center;
   font-size: 27px;
-  text-decoration: none;
-  list-style: none;
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   font-weight: 700;
 }
@@ -33,9 +31,11 @@ a {
   padding-left: 10px;
 }
 
-ul, li {
+.r-dots {
   flex-direction: row;
-  width: 400px; 
+  width: 130px; 
+  text-decoration: none;
+  list-style: none;
 }
 
 .logo{
@@ -78,11 +78,18 @@ h1 {
   box-shadow: 1px 1px 1px 1px;
 }
 
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4em;
+}
+
 .book:nth-child(odd) {
   background-color: silver;
 }
 
-hr{
+hr {
   border: 2px solid black;
   margin-top: 30px;
   width: 200px;
@@ -100,7 +107,6 @@ hr{
 
 .remove{
   margin-right: 2em;
-  padding: .3em;
   border: 1px solid;
   padding: 10px;
   box-shadow: 5px 10px;
@@ -108,4 +114,60 @@ hr{
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   font-size: 22px;
   font-weight: 700;
+}
+
+.book-form {
+  padding: 0.3em;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.title,
+.author,
+.btn {
+  margin: 1em;
+  border: 2px solid black;
+  padding: 0.4em;
+  font-size: 22px;
+}
+
+.btn {
+  width: 100px;
+  box-shadow: 5px 10px;
+  font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+  font-weight: bold;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+::placeholder {
+  font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+.contact-info-list{
+  display: block;
+}
+
+.contact-info-list li {
+  margin-left: 30px;
+  display: list-item;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid black;
+}
+
+.footer-bar {
+  padding: 0.4em;
+  padding-left: 1em;
+  font-size: 22px;
 }

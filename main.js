@@ -37,7 +37,7 @@ class Book {
       const div = document.createElement('div');
       div.classList.add('book');
       div.innerHTML = `
-                        <div>" ${title} "  by ${author}</div>
+                        <div>' ${title} '  by ${author}</div>
                         
                         <button class='remove' id = '${id}'>Remove</button>`;
 

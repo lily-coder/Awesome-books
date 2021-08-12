@@ -5,7 +5,8 @@
 > In this project, we are using Javascript to build a basic website that allows users to add/remove books from a list. 
 
 # Live Demo
--To view this project live use this [link](https://rawcdn.githack.com/menyagah/Awesome-books/13069015eea11c8f3f3ab78eb423d061bfec85d4/index.html)
+-To view this project live use this [link](https://raw.githack.com/menyagah/Awesome-books/feature/index.html
+)
 
 ## Built With
 
