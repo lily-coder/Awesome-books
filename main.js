@@ -6,10 +6,13 @@ const dateMonth = document.querySelector('.datetime');
 
 // DATE SECTION
 
-const section = document.createElement('div');
-section.classList.add('date-time');
-section.innerHTML = `<div>${Date()}<div>`;
-dateMonth.appendChild(section);
+document.addEventListener('DOMContentLoaded', () => {
+  const { DateTime } = luxon;
+  const section = document.createElement("div");
+  section.classList.add("date-time");
+  section.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED)
+  dateMonth.appendChild(section);
+});
 
 // NAVIGATION SECTION
 
