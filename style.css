@@ -106,12 +106,6 @@ hr {
   width: 200px;
 }
 
-.book {
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.4em;
-}
-
 .remove {
   margin-right: 2em;
   border: 1px solid;
