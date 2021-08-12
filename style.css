@@ -1,3 +1,8 @@
+body{
+  font-size: 27px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+}
 h1 {
   font-size: 2em;
 }
@@ -6,10 +11,11 @@ h1 {
   display: flex;
   width: 100%;
   flex-direction:column;
+  border: 2px solid black;
 }
 
 .book:nth-child(odd) {
-  background-color: grey;
+  background-color: silver;
   display: flex;
   justify-content: space-between;
   padding: .4em;
@@ -17,10 +23,22 @@ h1 {
 
 .book {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: .4em;
 }
 
 .book-form {
   padding: .3em;
+}
+
+.remove{
+  padding: .3em;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px;
+  width: 170px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
 }
