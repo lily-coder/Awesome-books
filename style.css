@@ -80,3 +80,20 @@ hr {
   color: black;
   font-weight: bold;
 }
+
+.contact-info-list li {
+  margin-left: 30px;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid black;
+}
+
+.footer-bar {
+  padding: 0.4em;
+  padding-left: 1em;
+  font-size: 22px;
+}
