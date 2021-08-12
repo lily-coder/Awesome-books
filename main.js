@@ -2,6 +2,15 @@
 const title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const button = document.querySelector('.btn');
+const dateMonth = document.querySelector('.datetime')
+
+
+//DATE SECTION
+
+const section = document.createElement('div');
+section.classList.add('date-time');
+section.innerHTML = `<div>${Date()}<div>`
+dateMonth.appendChild(section)
 
 class Book {
   constructor(title, author) {
