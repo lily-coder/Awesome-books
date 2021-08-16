@@ -23,6 +23,8 @@ body {
   box-sizing: border-box;
   padding: 30px;
   min-height: calc(100vh - 100px);
+  background-color: #0d2633e1;
+  ;
 }
 
 .nav-links {
@@ -33,7 +35,11 @@ body {
 a {
   text-decoration: none;
   list-style: none;
-  color: black;
+  color: white;
+}
+
+a:hover {
+  color: #0d2633e1;
 }
 
 .a-link {
@@ -49,15 +55,16 @@ a {
 
 .logo {
   margin-left: 30px;
+  color: white;
 }
 
 .line {
-  border-right: 2px solid black;
+  border-right: 2px solid white;
 }
 
 .top-header,
 .book-list {
-  border: 2px solid black;
+  border: 2px solid white;
   width: 90%;
 }
 
@@ -65,14 +72,22 @@ a {
   justify-content: space-between;
   align-items: center;
   height: 50px;
+  background-color: #3594c78f;
 }
 
-h1 {
+h1,
+h2 {
   font-size: 2em;
+  color: white;
+}
+
+p {
+  color: white;
 }
 
 .date-time {
   font-size: 15px;
+  color: white;
 }
 
 .datetime {
@@ -97,11 +112,17 @@ h1 {
 }
 
 .book:nth-child(odd) {
-  background-color: silver;
+  color: white;
+  background-color:#3594c78f;
+}
+
+.book:nth-child(even) {
+  color: white;
+  background-color: #0d263300;
 }
 
 hr {
-  border: 2px solid black;
+  border: 2px solid white;
   margin-top: 30px;
   width: 200px;
 }
@@ -110,7 +131,7 @@ hr {
   margin-right: 2em;
   border: 1px solid;
   padding: 10px;
-  box-shadow: 5px 10px;
+  box-shadow: 5px 10px #12232e;
   width: 170px;
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   font-size: 22px;
@@ -153,12 +174,18 @@ hr {
 
 ::placeholder {
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
-  color: black;
+  color: white;
   font-weight: bold;
+}
+
+input {
+  background-color: #3594c78f;
+  color: white;
 }
 
 .contact-section {
   flex: 1 0 auto;
+  color: white;
 }
 
 .contact-info-list {
@@ -173,7 +200,7 @@ hr {
 footer {
   width: 95%;
   justify-content: flex-start;
-  border: 2px solid black;
+  border: 2px solid white;
   margin-top: 10px;
   flex-shrink: 0;
 }
@@ -182,4 +209,6 @@ footer {
   padding: 0.4em;
   padding-left: 1em;
   font-size: 22px;
+  color: white;
+  background-color: #3594c78f;
 }

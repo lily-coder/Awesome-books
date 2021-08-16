@@ -25,6 +25,7 @@ const displayHeading = document.querySelector('#h1');
 const displayInputs = document.querySelector('#show-form');
 const displayContact = document.querySelector('#contacts');
 const displayMainHeader = document.querySelector('#top-text');
+const displayMainP = document.querySelector('.p');
 
 listBtn.addEventListener('click', () => {
   displayList.classList.remove('hide');
@@ -32,6 +33,7 @@ listBtn.addEventListener('click', () => {
   displayHeading.classList.add('hide');
   displayInputs.classList.add('hide');
   displayMainHeader.classList.remove('hide');
+  displayMainP.classList.remove('hide');
 });
 
 addBtn.addEventListener('click', () => {
@@ -40,12 +42,14 @@ addBtn.addEventListener('click', () => {
   displayList.classList.add('hide');
   displayMainHeader.classList.add('hide');
   displayContact.classList.add('hide');
+  displayMainP.classList.add('hide');
 });
 
 contactBtn.addEventListener('click', () => {
   displayContact.classList.remove('hide');
   displayHeading.classList.add('hide');
   displayInputs.classList.add('hide');
+  displayMainP.classList.add('hide');
 });
 
 class Book {
